@@ -39,7 +39,10 @@
             <twig:ea:Icon name="{{ icon }}" class="btn-icon" />
         {% endif %}
         {% if block('content') is defined %}
-            <span {{ attributes.nested('label').defaults({class: 'btn-label'}) }}>{{ block('content') }}</span>
+            {% set content = block('content') %}
+            {% if content|trim is not empty %}
+                <span {{ attributes.nested('label').defaults({class: 'btn-label'}) }}>{{ content|raw }}</span>
+            {% endif %}
         {% endif %}
         {% if icon and withTrailingIcon %}
             <twig:ea:Icon name="{{ icon }}" class="btn-icon btn-icon-trailing" />
@@ -63,7 +66,10 @@
                 <twig:ea:Icon name="{{ icon }}" class="btn-icon" />
             {% endif %}
             {% if block('content') is defined %}
-                <span {{ attributes.nested('label').defaults({class: 'btn-label'}) }}>{{ block('content') }}</span>
+                {% set content = block('content') %}
+                {% if content|trim is not empty %}
+                    <span {{ attributes.nested('label').defaults({class: 'btn-label'}) }}>{{ content|raw }}</span>
+                {% endif %}
             {% endif %}
             {% if icon and withTrailingIcon %}
                 <twig:ea:Icon name="{{ icon }}" class="btn-icon btn-icon-trailing" />
@@ -80,7 +86,10 @@
             <twig:ea:Icon name="{{ icon }}" class="btn-icon" />
         {% endif %}
         {% if block('content') is defined %}
-            <span {{ attributes.nested('label').defaults({class: 'btn-label'}) }}>{{ block('content') }}</span>
+            {% set content = block('content') %}
+            {% if content|trim is not empty %}
+                <span {{ attributes.nested('label').defaults({class: 'btn-label'}) }}>{{ content|raw }}</span>
+            {% endif %}
         {% endif %}
         {% if icon and withTrailingIcon %}
             <twig:ea:Icon name="{{ icon }}" class="btn-icon btn-icon-trailing" />
